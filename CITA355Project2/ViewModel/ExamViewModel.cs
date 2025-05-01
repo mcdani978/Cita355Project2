@@ -8,22 +8,13 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace CITA355Project2.ViewModel
 {
-    public partial class MainViewModel : ObservableObject
+    public partial class ExamViewModel : ObservableObject
     {
         [RelayCommand]
-        async Task Exam()
+        async Task Submit()
         {
-            await Shell.Current.GoToAsync($"{nameof(ExamPage)}");
-        }
-        [RelayCommand]
-        async Task Result()
-        {
+            if ()
             await Shell.Current.GoToAsync($"{nameof(ResultPage)}");
-        }
-        [RelayCommand]
-        async Task Report()
-        {
-            await Shell.Current.GoToAsync($"{nameof(ReportPage)}");
         }
     }
 }
