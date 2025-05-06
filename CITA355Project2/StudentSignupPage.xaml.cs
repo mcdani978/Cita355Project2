@@ -7,14 +7,15 @@ public partial class StudentSignupPage : ContentPage
 		InitializeComponent();
 	}
 
-    private void OnSubmitClicked(object sender, EventArgs e)
+    private async void OnSubmitClicked(object sender, EventArgs e)
     {
-        string username = usernameEntry.Text;
+        string studentID = StudentIDEntry.Text;
         string firstName = firstNameEntry.Text;
         string lastName = lastNameEntry.Text;
-        string password = passwordEntry.Text;
+        string email = EmailEntry.Text;
 
-        // For now, just display the data in an alert
-        DisplayAlert("Signup Info", $"Username: {username}\nFirst Name: {firstName}\nLast Name: {lastName}\nPassword: {password}", "OK");
+        await DisplayAlert("Signup Info",
+            $"Student ID: {studentID}\nFirst Name: {firstName}\nLast Name: {lastName}\nEmail: {email}",
+            "OK");
     }
 }
