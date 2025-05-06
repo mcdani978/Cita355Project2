@@ -2,13 +2,27 @@ namespace CITA355Project2;
 
 public partial class Loginpage : ContentPage
 {
-	public Loginpage()
-	{
-		InitializeComponent();
-	}
+    
+    private const string PreconfiguredPassword = "1234";
+
+    public Loginpage()
+    {
+        InitializeComponent();
+    }
 
     private async void OnLoginButtonClicked(object sender, EventArgs e)
     {
-        await Navigation.PushAsync(new StudentSignupPage());
+        string enteredPassword = passwordEntry.Text;
+
+        if (enteredPassword == PreconfiguredPassword)
+        {
+            errorLabel.IsVisible = false;
+            await Navigation.PushAsync(new StudentSignupPage());
+        }
+        else
+        {
+            errorLabel.Text = "Wrong password";
+            errorLabel.IsVisible = true;
+        }
     }
 }
