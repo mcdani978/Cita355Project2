@@ -77,8 +77,8 @@ namespace CITA355Project2.ViewModel
                 correct++;
             Q5Answer = Q5;
             Grade = (float)(100 * correct / total);
-            GradeText = $"You scored: {Grade.ToString()}";
-            StudentInfo += $" {Grade.ToString()}";
+            GradeText = $"You scored: {Grade.ToString()}%";
+            StudentInfo += $" | {Grade.ToString()}";
             //StudentInfo.Add(Grade.ToString());
 
             await Shell.Current.GoToAsync($"{nameof(ResultPage)}?StudentInfo={StudentInfo}" +

@@ -14,7 +14,7 @@ public partial class StudentSignupPage : ContentPage
         string lastName = lastNameEntry.Text;
         string email = EmailEntry.Text;
 
-        string studentInfo = $"{studentID} {firstName} {lastName} {email}";
+        string studentInfo = $"{studentID} | {firstName} | {lastName} | {email}";
         //string[] studentInfo = [studentID, firstName, lastName, email];
         string stuName = $"{firstName} {lastName}";
 

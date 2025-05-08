@@ -10,6 +10,10 @@
             Text="Report"
             VerticalOptions="Center" 
             HorizontalOptions="Center" Padding="15" />
+        <Label 
+            Text="{Binding StudentInfo}"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" Padding="15" />
 
 
         <CollectionView Grid.Row="2" Grid.ColumnSpan="2"

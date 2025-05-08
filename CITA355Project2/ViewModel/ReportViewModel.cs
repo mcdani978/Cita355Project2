@@ -9,7 +9,6 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace CITA355Project2.ViewModel
 {
-    [QueryProperty("Grade", "Grade")]
     [QueryProperty("StudentInfo", "StudentInfo")]
     public partial class ReportViewModel : ObservableObject
     {
@@ -18,10 +17,6 @@ namespace CITA355Project2.ViewModel
             StudentRecords = new ObservableCollection<string>();
         }
 
-        [ObservableProperty]
-        string text;
-        [ObservableProperty]
-        float grade;
         [ObservableProperty]
         string studentInfo;
         //ObservableCollection<string> studentInfo;

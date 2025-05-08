@@ -4,20 +4,20 @@ using CommunityToolkit.Mvvm.Input;
 
 namespace CITA355Project2.ViewModel
 {
-    [QueryProperty("WrongAnswers", "WrongAnswers")]
+    //[QueryProperty("WrongAnswers", "WrongAnswers")]
     [QueryProperty("Grade", "Grade")]
-    [QueryProperty("Text", "Text")]
+    //[QueryProperty("Text", "Text")]
     [QueryProperty("StudentInfo", "StudentInfo")]
     [QueryProperty("GradeText", "GradeText")]
     [QueryProperty("Q1Answer", "Q1Answer")]
-    [QueryProperty("Q2Answer", "Q1Answer")]
+    [QueryProperty("Q2Answer", "Q2Answer")]
     [QueryProperty("Q3Answer", "Q3Answer")]
     [QueryProperty("Q5Answer", "Q5Answer")]
 
     public partial class ResultViewModel : ObservableObject
     {
-        [ObservableProperty]
-        ObservableCollection<string> wrongAnswers;
+        //[ObservableProperty]
+        //ObservableCollection<string> wrongAnswers;
         [ObservableProperty]
         float grade;
         [ObservableProperty]
@@ -25,7 +25,7 @@ namespace CITA355Project2.ViewModel
         //ObservableCollection<string> studentInfo;
 
         [ObservableProperty]
-        string gradeText = "";
+        string gradeText = string.Empty;
 
         [ObservableProperty]
         string q1Answer;
@@ -40,7 +40,7 @@ namespace CITA355Project2.ViewModel
         [RelayCommand]
         async Task ViewGrades()
         {
-            await Shell.Current.GoToAsync($"{nameof(ReportPage)}?Grade=={Grade}&StudentInfo=={StudentInfo}");
+            await Shell.Current.GoToAsync($"{nameof(ReportPage)}?Grade={Grade}&StudentInfo={StudentInfo}");
         }
     }
 }

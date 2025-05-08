@@ -9,8 +9,9 @@
 <ScrollView
     Margin="10">
     <VerticalStackLayout>
-        
-        <Label Text="{Binding StuName}"/>
+
+            <Label Text="{Binding StuName}"
+                Style="{StaticResource SubHeadline}"/>
         <Label Padding="10">
             <Label.FormattedText>
                 <FormattedString>
