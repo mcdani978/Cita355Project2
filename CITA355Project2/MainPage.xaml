@@ -3,7 +3,8 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CITA355Project2.MainPage"
              xmlns:viewmodel="clr-namespace:CITA355Project2.ViewModel"
-             x:DataType="viewmodel:MainViewModel">
+             x:DataType="viewmodel:MainViewModel"
+             Title="MainPage">
 
     <ScrollView>
         <VerticalStackLayout

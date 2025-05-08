@@ -10,6 +10,9 @@ namespace CITA355Project2.ViewModel
 {
     public partial class MainViewModel : ObservableObject
     {
+        [ObservableProperty]
+        string text;
+
         [RelayCommand]
         async Task Exam()
         {

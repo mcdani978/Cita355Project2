@@ -18,9 +18,13 @@ namespace CITA355Project2
 
             builder.Services.AddSingleton<MainPage>();
             builder.Services.AddSingleton<MainViewModel>();
+            builder.Services.AddSingleton<ReportPage>();
+            builder.Services.AddSingleton<ReportViewModel>();
 
             builder.Services.AddTransient<ExamPage>();
-            //builder.Services.AddTransient<DetailViewModel>();
+            builder.Services.AddTransient<ExamViewModel>();
+            builder.Services.AddTransient<ResultPage>();
+            builder.Services.AddTransient<ResultViewModel>();
 
 #if DEBUG
             builder.Logging.AddDebug();
