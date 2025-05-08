@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CITA355Project2.ReportPage"
+             xmlns:viewmodel="clr-namespace:CITA355Project2.ViewModel"
+             x:DataType="viewmodel:ReportViewModel"
+             Title="ReportPage">
+    <VerticalStackLayout>
+        <Label 
+            Text="Report"
+            VerticalOptions="Center" 
+            HorizontalOptions="Center" />
+
+
+        <Button
+                x:Name="Home"
+                Text="Return to Home Page"
+                Command="{Binding HomeCommand}"
+                HorizontalOptions="Fill" />
+    </VerticalStackLayout>
+</ContentPage>

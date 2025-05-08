@@ -2,9 +2,142 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="CITA355Project2.ExamPage"
-             Title="ExamPage">
+             xmlns:system="clr-namespace:System;assembly=netstandard"
+             Title="ExamPage"
+             xmlns:viewmodel="clr-namespace:CITA355Project2.ViewModel"
+             x:DataType="viewmodel:ExamViewModel">
+<ScrollView
+    Margin="10">
     <VerticalStackLayout>
-        <Label
-            Text="EXAM"/>
-    </VerticalStackLayout>
+        
+        <Label Padding="10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Question 1:"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="$name is an example of what?"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <HorizontalStackLayout RadioButtonGroup.GroupName="Q1"
+            RadioButtonGroup.SelectedValue="{Binding Q1}"
+            Padding="10">
+            <VerticalStackLayout>
+                <RadioButton x:Name="Tag" Margin="5"
+                    Content="Tag" Value="Tag" />
+                <RadioButton x:Name="Variable" Margin="5"
+                    Content="Variable" Value="Variable" />
+            </VerticalStackLayout>
+            <VerticalStackLayout>
+                <RadioButton x:Name="Array" Margin="5"
+                    Content="Array" Value="Array" />
+                <RadioButton x:Name="StringQ1" Margin="5"
+                    Content="String" Value="String" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+        
+        <Label Padding="10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Question 2:"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="What will the following code output?"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="if (3 > 0) {"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="    echo 'Higher'; }"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="else {"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="    echo 'Lower' }"/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <HorizontalStackLayout RadioButtonGroup.GroupName="Q2"
+            RadioButtonGroup.SelectedValue="{Binding Q2}"
+            Padding="10">
+            <VerticalStackLayout>
+                <RadioButton x:Name="Higher" Margin="5"
+                    GroupName="Q2" Content="Higher" Value="Higher" />
+                <RadioButton x:Name="Lower" Margin="5"
+                    GroupName="Q2" Content="Lower" Value="Lower" />
+            </VerticalStackLayout>
+
+            <VerticalStackLayout>
+                <RadioButton x:Name='ThreeQ2' Margin="5"
+                    GroupName="Q2" Content='3' Value="3" />
+                <RadioButton x:Name="Error" Margin="5"
+                    GroupName="Q2" Content="The program will throw an error" Value="Error" />
+            </VerticalStackLayout>
+        </HorizontalStackLayout>
+
+
+        <Label Padding="10">
+            <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Question 3:"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="Select the php data type that would be the best option to hold the value of the calculated average of a set of test scores."/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <StackLayout>
+            <Picker x:Name="Q3" Title="Select an option"
+                    SelectedItem="{Binding Q3}">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>String</x:String>
+                        <x:String>Float</x:String>
+                        <x:String>Boolean</x:String>
+                        <x:String>NULL</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
+        </StackLayout>
+
+            <!--<Label Padding="10">
+                <Label.FormattedText>
+                    <FormattedString>
+                        <Span Text="Question 4:"/>
+                        <Span Text="{x:Static system:Environment.NewLine}"/>
+                        <Span Text="What are actions you must take when a browser sends data. (Check any that apply)"/>
+                    </FormattedString>
+                </Label.FormattedText>
+            </Label>
+            <Checkbox x:Name="Validate it" Margin="5"
+     GroupName="Q4" Content="Validate it" />
+        <Checkbox x:Name="Modify it" Margin="5"
+     GroupName="Q4" Content="Modify it" />
+        <Checkbox x:Name="Upload it" Margin="5"
+     GroupName="Q4" Content="Upload it" />
+            <Checkbox x:Name="Collect it" Margin="5"
+     GroupName="Q4" Content="Collect it" />-->
+
+            <Label Padding="10">
+                <Label.FormattedText>
+                <FormattedString>
+                    <Span Text="Question 5:"/>
+                    <Span Text="{x:Static system:Environment.NewLine}"/>
+                    <Span Text="You can use session_unset() to remove all session data and destroy the current session."/>
+                </FormattedString>
+            </Label.FormattedText>
+        </Label>
+        <HorizontalStackLayout RadioButtonGroup.GroupName="Q5"
+            RadioButtonGroup.SelectedValue="{Binding Q5}">
+        <RadioButton x:Name="T" Margin="5"
+            GroupName="Q5" Content="True" Value="True" />
+        <RadioButton x:Name="F" Margin="5"
+            GroupName="Q5" Content="False" Value="False" />
+        </HorizontalStackLayout>
+
+
+        <Button
+            x:Name="Submit"
+            Text="Submit"
+            Command="{Binding SubmitCommand}"
+            HorizontalOptions="Fill" />
+
+        </VerticalStackLayout>
+</ScrollView>
 </ContentPage>
