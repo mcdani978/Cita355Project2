@@ -1,14 +1,17 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CITA355Project2.MainPage"
-             xmlns:viewmodel="clr-namespace:CITA355Project2.ViewModel"
-             x:DataType="viewmodel:MainViewModel">
+             x:Class="CITA355Project2.MainPage">
 
     <ScrollView>
         <VerticalStackLayout
             Padding="30,0"
             Spacing="25">
+            <Image
+                Source="dotnet_bot.png"
+                HeightRequest="185"
+                Aspect="AspectFit"
+                SemanticProperties.Description="dot net bot in a hovercraft number nine" />
 
             <Label
                 Text="Hello, World!"
@@ -21,11 +24,9 @@
                 SemanticProperties.HeadingLevel="Level2"
                 SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
 
-            <Button
-                x:Name="Exam"
-                Text="Go to exam"
-                Command="{Binding ExamCommand}"
-                HorizontalOptions="Fill" />
+            <Button 
+                Text="Go to Login Page" 
+                Clicked="OnLoginButtonClicked" />
         </VerticalStackLayout>
     </ScrollView>
 

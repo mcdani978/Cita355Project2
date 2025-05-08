@@ -1,14 +1,17 @@
-﻿using CITA355Project2.ViewModel;
-
-namespace CITA355Project2
+﻿namespace CITA355Project2
 {
     public partial class MainPage : ContentPage
     {
+        int count = 0;
 
-        public MainPage(MainViewModel vm)
+        public MainPage()
         {
             InitializeComponent();
-            BindingContext = vm;
+        }
+
+        private async void OnLoginButtonClicked(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new Loginpage());
         }
     }
 
