@@ -5,17 +5,37 @@
              xmlns:viewmodel="clr-namespace:CITA355Project2.ViewModel"
              x:DataType="viewmodel:ReportViewModel"
              Title="ReportPage">
-    <VerticalStackLayout>
+    <VerticalStackLayout Padding="25">
         <Label 
             Text="Report"
             VerticalOptions="Center" 
-            HorizontalOptions="Center" />
+            HorizontalOptions="Center" Padding="15" />
 
 
+        <CollectionView Grid.Row="2" Grid.ColumnSpan="2"
+                        ItemsSource="{Binding StudentRecords}"
+                        SelectionMode="None">
+            <CollectionView.ItemTemplate>
+                <DataTemplate x:DataType="{x:Type x:String}">
+                    <Grid Padding="0.5">
+                        <Frame>
+                            <Label Text="{Binding .}"/>
+                        </Frame>
+                    </Grid>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+        </CollectionView>
+
+        <Button
+                x:Name="Add"
+                Text="Add your score to the table"
+                Command="{Binding AddScoreCommand}"
+                HorizontalOptions="Fill" Padding="15" />
+        
         <Button
                 x:Name="Home"
                 Text="Return to Home Page"
                 Command="{Binding HomeCommand}"
-                HorizontalOptions="Fill" />
+                HorizontalOptions="Fill" Padding="15" />
     </VerticalStackLayout>
 </ContentPage>

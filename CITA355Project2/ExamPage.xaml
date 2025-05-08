@@ -10,6 +10,7 @@
     Margin="10">
     <VerticalStackLayout>
         
+        <Label Text="{Binding StuName}"/>
         <Label Padding="10">
             <Label.FormattedText>
                 <FormattedString>
@@ -130,7 +131,6 @@
         <RadioButton x:Name="F" Margin="5"
             GroupName="Q5" Content="False" Value="False" />
         </HorizontalStackLayout>
-
 
         <Button
             x:Name="Submit"

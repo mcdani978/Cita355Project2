@@ -14,8 +14,14 @@ public partial class StudentSignupPage : ContentPage
         string lastName = lastNameEntry.Text;
         string email = EmailEntry.Text;
 
-        await DisplayAlert("Signup Info",
-            $"Student ID: {studentID}\nFirst Name: {firstName}\nLast Name: {lastName}\nEmail: {email}",
-            "OK");
+        string studentInfo = $"{studentID} {firstName} {lastName} {email}";
+        //string[] studentInfo = [studentID, firstName, lastName, email];
+        string stuName = $"{firstName} {lastName}";
+
+        //await DisplayAlert("Signup Info",
+        //    $"Student ID: {studentID}\nFirst Name: {firstName}\nLast Name: {lastName}\nEmail: {email}",
+        //    "OK");
+
+        await Shell.Current.GoToAsync($"{nameof(ExamPage)}?StudentInfo={studentInfo}&StuName={stuName}");
     }
 }

@@ -10,6 +10,8 @@ using Microsoft.Maui.Networking;
 
 namespace CITA355Project2.ViewModel
 {
+    [QueryProperty("StudentInfo", "StudentInfo")]
+    [QueryProperty("StuName", "StuName")]
     public partial class ExamViewModel : ObservableObject
     {
         [ObservableProperty]
@@ -23,44 +25,64 @@ namespace CITA355Project2.ViewModel
         [ObservableProperty]
         string q5;
         [ObservableProperty]
-        ObservableCollection<string> wrongAnswers;
+        string q1Answer;
+        [ObservableProperty]
+        string q2Answer;
+        [ObservableProperty]
+        string q3Answer;
+        [ObservableProperty]
+        string q5Answer;
         [ObservableProperty]
         float grade;
+        [ObservableProperty]
+        string gradeText;
 
-        int total = 0, correct = 0;
+        [ObservableProperty]
+        string stuName;
+        [ObservableProperty]
+        string studentInfo;
+        //ObservableCollection<string> studentInfo;
+
+        //[ObservableProperty]
+        //ObservableCollection<string> wrongAnswers;
+
+        int total = 4, correct = 0;
 
         [RelayCommand]
         async Task Submit()
         {
+            correct = 0;
 
-            ////if (string.IsNullOrWhiteSpace(Q1))
-            ////    return;
-            //if (Q1 == "Variable")
-            //    correct++;
-            //else WrongAnswers.Add("Q1");
-            //total++;
-            ////if (string.IsNullOrWhiteSpace(Q2))
-            ////    return;
-            //if (Q2 == "Higher")
-            //    correct++;
-            //else WrongAnswers.Add("Q2");
-            //total++;
-            ////if (string.IsNullOrWhiteSpace(Q3) || Q3 == "Select an option")
-            ////    return;
-            //if (Q3 == "Float")
-            //    correct++;
-            //else WrongAnswers.Add("Q3");
-            //total++;
-            ////if (string.IsNullOrWhiteSpace(Q5))
-            ////    return;
-            //if (Q5 == "False")
-            //    correct++;
-            //else WrongAnswers.Add("Q5");
-            //total++;
-            //Grade = correct / total;
-            Text = Q1;
+            if (string.IsNullOrWhiteSpace(Q1))
+                return;
+            if (Q1 == "Variable")
+                correct++;
+            Q1Answer = Q1;
+            if (string.IsNullOrWhiteSpace(Q2))
+                return;
+            if (Q2 == "Higher")
+                correct++;
+            Q2Answer = Q2;
+            if (Q3 == "Select an option")
+            {
+                if (string.IsNullOrWhiteSpace(Q5))
+                    return;
+            }
+            if (Q3 == "Float")
+                correct++;
+            Q3Answer = Q3;
+            if (string.IsNullOrWhiteSpace(Q5))
+                return;
+            if (Q5 == "False")
+                correct++;
+            Q5Answer = Q5;
+            Grade = (float)(100 * correct / total);
+            GradeText = $"You scored: {Grade.ToString()}";
+            StudentInfo += $" {Grade.ToString()}";
+            //StudentInfo.Add(Grade.ToString());
 
-            await Shell.Current.GoToAsync($"{nameof(ResultPage)}?WrongAnswers=={WrongAnswers}&Grade=={Grade}&Text=={Text}");
+            await Shell.Current.GoToAsync($"{nameof(ResultPage)}?StudentInfo={StudentInfo}" +
+                $"&GradeText={GradeText}&Q1Answer={Q1Answer}&Q2Answer={Q2Answer}&Q3Answer={Q3Answer}&Q5Answer={Q5Answer}");
 
         }
     }
